@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer permanent>
+  <v-navigation-drawer v-model="store.BarraLateral">
   <v-list-item title="My Application" subtitle="Vuetify"></v-list-item>
   <v-divider></v-divider>
   <v-list-item link title="List Item 1"></v-list-item>
@@ -9,6 +9,8 @@
 </template>
 
 <script setup>
+import { useUiStore } from '@/stores/ui';
+const store = useUiStore()
 
 </script>
 
