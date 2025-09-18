@@ -9,5 +9,6 @@ export const useUiStore = defineStore('ui', {
     AbrirBarraLateral() {
       this.BarraLateral = !this.BarraLateral
     }
-  }
+  },
+  persist: true
 })
