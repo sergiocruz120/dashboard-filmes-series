@@ -1,3 +1,4 @@
+import FormularioFilme from '@/components/filmes/FormularioFilme.vue'
 import PaginaFilmes from '@/views/PaginaFilmes.vue'
 import PaginaInicial from '@/views/PaginaInicial.vue'
 import { createRouter, createWebHistory } from 'vue-router'
@@ -14,6 +15,11 @@ const router = createRouter({
       path: '/filmes',
       name: 'filmes',
       component: PaginaFilmes
+    },
+    {
+      path: '/formulariof',
+      name: 'formulariof',
+      component: FormularioFilme
     }
   ],
 })

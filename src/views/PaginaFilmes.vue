@@ -22,7 +22,7 @@ const store = entretenimentoStore()
 
 const filmes = computed(() => store.filmes)
 
-import CardFilme from '@/components/CardFilme.vue';
+import CardFilme from '@/components/filmes/CardFilme.vue';
 import { computed } from 'vue';
 
 </script>
