@@ -1,11 +1,12 @@
 <template>
   <v-card class="mb-1">
     <div class="pa-1 border">
-      <!-- <v-img class="align-end text-white" height="200" :src="filme.url" cover>
-      </v-img> -->
+
       <v-card-title>{{ filme.titulo }}</v-card-title>
+      <v-card-title>{{ filme.id }}</v-card-title>
+
       <v-card-subtitle class="pt-4">
-        {{ filme.ano }}
+           {{ filme.ano }}
         <h3>{{ filme.genero }}</h3>
       </v-card-subtitle>
 

@@ -9,7 +9,7 @@
         sm="6"
         md="4"
       >
-        <CardFilme :filme="filme" />
+        <CartaoFilme :filme="filme" />
       </v-col>
     </v-row>
   </v-container>
@@ -17,13 +17,13 @@
 
 <script setup>
 import { entretenimentoStore } from '@/stores/entretenimentoStore';
+import { computed } from 'vue';
 
 const store = entretenimentoStore()
 
 const filmes = computed(() => store.filmes)
 
-import CardFilme from '@/components/filmes/CardFilme.vue';
-import { computed } from 'vue';
+import CartaoFilme from '@/components/filmes/CartaoFilme.vue';
 
 </script>
 
