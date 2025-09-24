@@ -3,7 +3,8 @@
     <div class="pa-1 border">
 
       <v-card-title>{{ serie.titulo }}</v-card-title>
-      <v-card-text>{{ serie.id }}</v-card-text>
+      <v-card-title>{{ serie.id }}</v-card-title>
+
       <v-card-subtitle class="pt-4">
            {{ serie.ano }}
         <h3>{{ serie.genero }}</h3>
@@ -32,12 +33,12 @@ const props = defineProps({
   serie: {
     type: Object,
     require: true
-  }
+  },
 })
 
 const assistido = computed({
   get: () => props.serie.assistida,
-  set: (val) => store.marcarSerieAssistida( props.serie.id, val)
+  set: (val) => store.marcarSerieAssistida(props.serie.id, val)
 })
 
 function removerSerie() {

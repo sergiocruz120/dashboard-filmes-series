@@ -7,6 +7,21 @@ export const entretenimentoStore = defineStore('entretenimentoStore', {
     series: useStorage('series', []),
   }),
 
+  getters: {
+    filmesAssistidos() {
+      return this.filmes.filter((f) => f.assistido === true)
+    },
+    filmesNaoAssistidos() {
+      return this.filmes.filter((f) => f.assistido === false)
+    },
+    seriesAssistidas() {
+      return this.series.filter((s) => s.assistida === true)
+    },
+    seriesNaoAssistidas() {
+      return this.series.filter((s) => s.assistida === false)
+    },
+  },
+
   actions: {
     adicionarFilme(dados) {
       this.filmes.push(dados)
@@ -32,12 +47,12 @@ export const entretenimentoStore = defineStore('entretenimentoStore', {
         serie.assistida = val
       }
     },
-    marcarEpisodioAssistido(idSerie, idEpisodio) {
+    marcarEpisodioAssistido(idSerie, idEpisodio, val) {
       const serie = this.series.find((s) => s.id === idSerie)
       if (serie) {
         const episodio = serie.episodios.find((e) => e.id === idEpisodio)
         if (episodio) {
-          episodio.assistido = true
+          episodio.assistido = val
         }
       }
     },
