@@ -6,7 +6,7 @@
       <v-card-title>{{ serie.id }}</v-card-title>
 
       <v-card-subtitle class="pt-4">
-           {{ serie.ano }}
+        {{ serie.ano }}
         <h3>{{ serie.genero }}</h3>
       </v-card-subtitle>
 
@@ -32,7 +32,7 @@ const store = entretenimentoStore()
 const props = defineProps({
   serie: {
     type: Object,
-    require: true
+    required: true
   },
 })
 
@@ -47,6 +47,4 @@ function removerSerie() {
 
 </script>
 
-<style>
-
-</style>
+<style></style>

@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <v-app>
+  <v-app  >
     <v-main>
       <router-view />
     </v-main>

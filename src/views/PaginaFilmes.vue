@@ -2,7 +2,7 @@
   <v-container>
     <h1>Lista de Filmes</h1>
     <v-row>
-      <v-col v-for="(filme) in filmes" :key="filme.id" cols="12" sm="6" md="4">
+      <v-col v-for="(filme) in filmes" :key="filme.id">
         <CartaoFilme :filme="filme" />
       </v-col>
     </v-row>

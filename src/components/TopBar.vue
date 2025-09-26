@@ -1,8 +1,8 @@
 <template>
   <v-app-bar class="border-b bg-green-darken-1" height="70" flat>
     <v-row no-gutters>
-      <v-col xs="1" sm="2" class="text-start pl-2">
-        <v-app-bar-nav-icon elevation="24" @click="abrirFechar"></v-app-bar-nav-icon>
+      <v-col class="d-flex align-center justify-start ml-3">
+        <v-icon hover icon="mdi-menu" @click="abrirFechar"></v-icon>
       </v-col>
       <v-col xs="2" sm="8" class="my-auto text-center">
         <h2 class="text-h5">Dashboard de Filmes e Séries</h2>
@@ -41,10 +41,9 @@
 
 <script setup>
 import { useUiStore } from '@/stores/ui'
-import { computed } from 'vue'
 
 const store = useUiStore()
-const abrirFechar = computed(() => store.AbrirBarraLateral)
+const abrirFechar = () => store.AbrirBarraLateral()
 </script>
 
 <style></style>

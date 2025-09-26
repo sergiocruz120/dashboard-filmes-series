@@ -57,4 +57,5 @@ export const entretenimentoStore = defineStore('entretenimentoStore', {
       }
     },
   },
+  persist: true
 })

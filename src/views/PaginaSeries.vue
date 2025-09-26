@@ -7,7 +7,7 @@
       </v-col>
 
       <v-col v-for="episodio in serie.episodios" :key="episodio.id" cols="12" sm="6" md="4">
-        <listaEpisodios :episodio="episodio" :idSerie="serie.id" />
+        <ListaEpisodios :episodio="episodio" :idSerie="serie.id" />
       </v-col>
     </v-row>
   </v-container>

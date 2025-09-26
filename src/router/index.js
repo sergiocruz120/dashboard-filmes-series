@@ -11,6 +11,7 @@ import FiltroFilmes from '@/components/filtros/FiltroFilmes.vue'
 import FiltroSeries from '@/components/filtros/FiltroSeries.vue'
 import FiltroAssistidos from '@/components/filtros/FiltroAssistidos.vue'
 import FiltroNaoAssistidos from '@/components/filtros/FiltroNaoAssistidos.vue'
+import PaginaEstatisticas from '@/views/PaginaEstatisticas.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,7 +19,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'dashboard',
-      component:  PaginaDashboard,
+      component: PaginaDashboard,
       children: [
         {
           path: '/filtro',
@@ -28,24 +29,24 @@ const router = createRouter({
             {
               path: 'filme',
               name: 'filme',
-              component: FiltroFilmes
+              component: FiltroFilmes,
             },
             {
               path: 'serie',
               name: 'serie',
-              component: FiltroSeries
+              component: FiltroSeries,
             },
             {
               path: 'assistido',
               name: 'assistido',
-              component: FiltroAssistidos
+              component: FiltroAssistidos,
             },
             {
               path: 'nao-assistidos',
               name: 'nao-assistidos',
-              component: FiltroNaoAssistidos
+              component: FiltroNaoAssistidos,
             },
-          ]
+          ],
         },
         {
           path: 'filmes',
@@ -60,10 +61,14 @@ const router = createRouter({
         {
           path: 'assistidos',
           name: 'assistidos',
-          component: PaginaAssistidos
-        }
-
-      ]
+          component: PaginaAssistidos,
+        },
+        {
+          path: 'estatisticas',
+          name: 'estatisticas',
+          component: PaginaEstatisticas,
+        },
+      ],
     },
     {
       path: '/formulario-filme',
@@ -76,6 +81,11 @@ const router = createRouter({
       component: FormularioSerie,
     },
   ],
+})
+
+// Configurações para melhorar compatibilidade
+router.beforeEach((to, from, next) => {
+  next()
 })
 
 export default router
