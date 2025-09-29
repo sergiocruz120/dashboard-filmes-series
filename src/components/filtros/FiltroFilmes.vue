@@ -5,10 +5,20 @@
     </v-col>
   </v-row> -->
   <v-row no-gutters class="mt-5">
-    <v-col cols="12" xs="12" sm="6" md="4" lg="3" xl="2" xxl="2" v-for="filme in filmes" :key="filme.id">
+    <v-col
+      cols="12"
+      xs="12"
+      sm="6"
+      md="4"
+      lg="3"
+      xl="2"
+      xxl="2"
+      v-for="filme in filmes"
+      :key="filme.id"
+    >
       <v-card class="border-md my-1 mx-1" outlined>
-        <v-img src="../../../public/origem.jpg" height="300" class="d-flex align-end" cover>
-          <v-card-title class="text-h5 text-start text-white">
+        <v-img gradient="to bottom, rgba(0,0,0,0.0) 50%, rgba(0,0,0,1) 100%" src="../../../public/origem.jpg" height="300" class="d-flex align-end" cover>
+          <v-card-title class="text-h6 text-start text-white">
             {{ filme.titulo }}
           </v-card-title>
         </v-img>
@@ -18,7 +28,8 @@
         </v-card-subtitle>
 
         <v-card-text class="text-start">
-          Esta é uma descrição simples do conteúdo do card. Pode conter detalhes como ano, gênero ou status.
+          Esta é uma descrição simples do conteúdo do card. Pode conter detalhes como ano, gênero ou
+          status.
         </v-card-text>
 
         <!-- <v-card-actions class="d-flex justify-space-between">
@@ -28,19 +39,15 @@
       </v-card>
     </v-col>
   </v-row>
-
 </template>
 
-
 <script setup>
-import { entretenimentoStore } from '@/stores/entretenimentoStore';
+import { entretenimentoStore } from '@/stores/entretenimentoStore'
 const store = entretenimentoStore()
 
-import { computed } from 'vue';
+import { computed } from 'vue'
 
 const filmes = computed(() => store.filmes)
 </script>
 
-<style>
-
-</style>
+<style></style>

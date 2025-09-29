@@ -10,7 +10,9 @@
     "jsx": "preserve",
     "allowSyntheticDefaultImports": true
   },
+  "vueCompilerOptions": {
+    "target": 3
+  },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
 }
-

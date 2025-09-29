@@ -1,26 +1,22 @@
 <template>
-  <v-container class="border-md" height="300" max-width="350">
+  <v-card class="rounded-lg bg-grey-darken-4 pa-4" height="300">
     <Pie :data="chartData" :options="chartOptions" />
-  </v-container>
+  </v-card>
 </template>
 
 <script setup>
 import { computed, ref } from 'vue'
 import { Pie } from 'vue-chartjs'
-import {
-  Chart as ChartJS,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement
-} from 'chart.js'
+import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from 'chart.js'
 import ChartDataLabels from 'chartjs-plugin-datalabels'
 import { entretenimentoStore } from '@/stores/entretenimentoStore'
 
 const store = entretenimentoStore()
 
 const assistidos = computed(() => store.filmesAssistidos.length + store.seriesAssistidas.length)
-const naoAssistidos = computed(() => store.filmesNaoAssistidos.length + store.seriesNaoAssistidas.length)
+const naoAssistidos = computed(
+  () => store.filmesNaoAssistidos.length + store.seriesNaoAssistidas.length,
+)
 
 // ⬇️ Registro dos módulos necessários
 ChartJS.register(Title, Tooltip, Legend, ArcElement, ChartDataLabels)
@@ -30,10 +26,10 @@ const chartData = ref({
   labels: ['Assistidos', 'Não Assistidos'],
   datasets: [
     {
-      data: [assistidos.value, naoAssistidos.value,],
-      backgroundColor: ['#4CAF50', '#EF5350']
-    }
-  ]
+      data: [assistidos.value, naoAssistidos.value],
+      backgroundColor: ['#4CAF50', '#EF5350'],
+    },
+  ],
 })
 
 // ⬇️ Configurações do gráfico
@@ -51,13 +47,11 @@ const chartOptions = ref({
       color: '#fff',
       font: {
         weight: 'bold',
-        size: 18
-      }
-    }
-  }
+        size: 18,
+      },
+    },
+  },
 })
 </script>
 
-<style scoped>
-/* Estilize como quiser */
-</style>
+<style scoped></style>

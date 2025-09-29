@@ -27,7 +27,7 @@ export const entretenimentoStore = defineStore('entretenimentoStore', {
       this.filmes.push(dados)
     },
     removerFilme(id) {
-      this.filmes = [...this.filmes.filter(filme => filme.id !== id)]
+      this.filmes = [...this.filmes.filter((filme) => filme.id !== id)]
     },
     marcarFilmeAssistido(id, val) {
       const filme = this.filmes.find((f) => f.id === id)
@@ -57,5 +57,5 @@ export const entretenimentoStore = defineStore('entretenimentoStore', {
       }
     },
   },
-  persist: true
+  persist: true,
 })

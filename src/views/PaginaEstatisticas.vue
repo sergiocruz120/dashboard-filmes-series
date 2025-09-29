@@ -1,27 +1,22 @@
 <template>
   <v-container>
-    <h1>Gráficos</h1>
-    <v-row  >
+    <v-row class="mt-10">
 
-      <v-col>
+      <v-col cols="12" md="6">
         <PieChart />
       </v-col>
 
-      <v-col>
+      <v-col cols="12" md="6">
         <BarChart />
       </v-col>
 
     </v-row>
-    <hr>
-  </v-container>
+</v-container>
 </template>
 
 <script setup>
-import BarChart from '@/components/graficos/BarChart.vue';
-import PieChart from '@/components/graficos/PieChart.vue';
-
+import BarChart from '@/components/graficos/BarChart.vue'
+import PieChart from '@/components/graficos/PieChart.vue'
 </script>
 
-<style>
-
-</style>
+<style></style>

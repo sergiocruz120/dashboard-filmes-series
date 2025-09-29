@@ -8,7 +8,6 @@
         <h2 class="text-h5">Dashboard de Filmes e Séries</h2>
       </v-col>
       <v-col xs="1" sm="2" class="text-end pr-2 my-auto">
-
         <v-menu offset-y>
           <template #activator="{ props }">
             <v-btn icon v-bind="props" rounded="xl" size="xxl">
@@ -40,9 +39,9 @@
 </template>
 
 <script setup>
-import { useUiStore } from '@/stores/ui'
+import { uiStore } from '@/stores/uiStore'
 
-const store = useUiStore()
+const store = uiStore()
 const abrirFechar = () => store.AbrirBarraLateral()
 </script>
 

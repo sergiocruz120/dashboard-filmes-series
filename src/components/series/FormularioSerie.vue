@@ -6,7 +6,13 @@
 
       <v-select v-model="novaSerie.ano" :items="dataAno" label="Ano" dense variant="outlined" />
 
-      <v-select v-model="novaSerie.generos[0]" :items="generos" label="Gênero" dense variant="outlined" />
+      <v-select
+        v-model="novaSerie.generos[0]"
+        :items="generos"
+        label="Gênero"
+        dense
+        variant="outlined"
+      />
 
       <!-- Episódio -->
       <v-divider class="my-3" />
@@ -15,22 +21,21 @@
           <v-text-field v-model="episodioTemp.titulo" label="Ep. Título" dense variant="outlined" />
         </v-col>
         <v-col cols="3">
-          <v-text-field v-model.number="episodioTemp.numero" label="Nº" type="number" variant="outlined" />
+          <v-text-field
+            v-model.number="episodioTemp.numero"
+            label="Nº"
+            type="number"
+            variant="outlined"
+          />
         </v-col>
       </v-row>
 
-      <v-btn size="small" block class="mb-2" @click="adicionarEpisodio">
-        + Episódio
-      </v-btn>
+      <v-btn size="small" block class="mb-2" @click="adicionarEpisodio"> + Episódio </v-btn>
 
-      <v-btn type="submit" variant="tonal" block>
-        Salvar Série
-      </v-btn>
+      <v-btn type="submit" variant="tonal" block> Salvar Série </v-btn>
     </v-form>
   </v-sheet>
 </template>
-
-
 
 <script setup>
 import { reactive } from 'vue'
@@ -49,23 +54,22 @@ const generos = [
   'Ficção Científica',
   'Fantasia',
   'Documentário',
-  'Animação'
+  'Animação',
 ]
-
 
 const novaSerie = reactive({
   titulo: '',
   ano: null,
   generos: [null],
   assistida: false,
-  episodios: []
+  episodios: [],
 })
 
 // Campos temporários para adicionar episódio
 const episodioTemp = reactive({
   titulo: '',
   numero: null,
-  assistido: false
+  assistido: false,
 })
 
 // Adiciona episódio à série
@@ -79,7 +83,7 @@ function adicionarEpisodio() {
     id: Date.now(),
     titulo: episodioTemp.titulo,
     numero: episodioTemp.numero,
-    assistido: episodioTemp.assistido
+    assistido: episodioTemp.assistido,
   })
 
   // Limpa os campos temporários
@@ -100,9 +104,9 @@ function adicionarSerie() {
     return
   }
   store.adicionarSerie({
-      ...novaSerie,
-      id: Date.now()
-     })
+    ...novaSerie,
+    id: Date.now(),
+  })
 
   // Limpa o formulário
   novaSerie.titulo = ''
@@ -114,6 +118,5 @@ function adicionarSerie() {
   alert('Série adicionada com sucesso!')
 }
 </script>
-
 
 <style></style>
