@@ -13,6 +13,7 @@
           v-model="busca"
           label="Buscar por título"
           clearable
+          variant="solo"
         />
       </v-col>
       <v-col cols="12" sm="4">
@@ -21,6 +22,7 @@
           :items="generosDisponiveis"
           label="Filtrar por gênero"
           clearable
+          variant="solo"
         />
       </v-col>
       <v-col cols="12" sm="4">
@@ -29,6 +31,7 @@
           :items="anosDisponiveis"
           label="Filtrar por ano"
           clearable
+          variant="solo"
         />
       </v-col>
     </v-row>
