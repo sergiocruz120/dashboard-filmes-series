@@ -32,10 +32,6 @@
           status.
         </v-card-text>
 
-        <!-- <v-card-actions class="d-flex justify-space-between">
-          <v-btn density="comfortable" color="primary" variant="flat">Ver mais</v-btn>
-          <v-btn density="comfortable" color="error" variant="outlined">Remover</v-btn>
-        </v-card-actions> -->
       </v-card>
     </v-col>
   </v-row>

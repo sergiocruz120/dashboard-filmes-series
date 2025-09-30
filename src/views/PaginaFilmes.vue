@@ -1,6 +1,42 @@
 <template>
   <v-container>
-    <h1>Lista de Filmes</h1>
+    <v-row>
+      <v-col class="text-center mb-2">
+        <h2>Filtros</h2>
+      </v-col>
+    </v-row>
+    <!-- Filtros -->
+    <v-row no-gutters>
+      <v-col cols="12" sm="4" class="pr-2">
+        <v-text-field
+          v-model="busca"
+          label="Buscar por título"
+
+          clearable
+          variant="solo"
+        />
+      </v-col>
+      <v-col cols="12" sm="4" class="pr-2">
+        <v-select
+          v-model="filtroGenero"
+          :items="generosDisponiveis"
+          label="Filtrar por gênero"
+          clearable
+          variant="solo"
+        />
+      </v-col>
+      <v-col cols="12" sm="4">
+        <v-select
+          v-model="filtroAno"
+          :items="anosDisponiveis"
+          label="Filtrar por ano"
+          clearable
+          variant="solo"
+        />
+      </v-col>
+    </v-row>
+
+    <!-- Lista de filmes filtrados -->
     <v-row no-gutters>
       <v-col
         cols="12"
@@ -9,7 +45,7 @@
         md="4"
         lg="3"
         class="pa-2"
-        v-for="filme in filmes"
+        v-for="filme in filmesFiltrados"
         :key="filme.id"
       >
         <CartaoFilme :filme="filme" />
@@ -20,13 +56,29 @@
 
 <script setup>
 import { entretenimentoStore } from '@/stores/entretenimentoStore'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
+import CartaoFilme from '@/components/filmes/CartaoFilme.vue'
 
 const store = entretenimentoStore()
 
-const filmes = computed(() => store.filmes)
+const busca = ref('')
+const filtroGenero = ref(null)
+const filtroAno = ref(null)
 
-import CartaoFilme from '@/components/filmes/CartaoFilme.vue'
+const generosDisponiveis = computed(() =>
+  [...new Set(store.filmes.map(f => f.genero))]
+)
+
+const anosDisponiveis = computed(() =>
+  [...new Set(store.filmes.map(f => f.ano))].sort((a, b) => b - a)
+)
+
+const filmesFiltrados = computed(() => {
+  return store.filmes.filter(filme => {
+    const tituloMatch = filme.titulo.toLowerCase().includes(busca.value.toLowerCase())
+    const generoMatch = !filtroGenero.value || filme.genero === filtroGenero.value
+    const anoMatch = !filtroAno.value || filme.ano === filtroAno.value
+    return tituloMatch && generoMatch && anoMatch
+  })
+})
 </script>
-
-<style></style>
