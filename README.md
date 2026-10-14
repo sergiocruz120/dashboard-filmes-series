@@ -1,41 +1,126 @@
-# dashboard
+# Dashboard de Filmes e Séries
 
-This template should help get you started developing with Vue 3 in Vite.
+Aplicação web para organizar filmes e séries, acompanhar conteúdos assistidos e visualizar estatísticas da coleção.
 
-## Recommended IDE Setup
+O projeto foi desenvolvido como prática de frontend com Vue 3. Ele reúne formulários, filtros combináveis, gerenciamento de estado, persistência local, rotas aninhadas e gráficos em uma interface responsiva construída com Vuetify.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Funcionalidades
 
-## Customize configuration
+- Cadastro de filmes com título, gênero e ano.
+- Cadastro de séries com seus respectivos episódios.
+- Listagem e remoção de filmes e séries.
+- Marcação de filmes e episódios como assistidos.
+- Busca de títulos por texto.
+- Filtros combináveis por gênero e ano.
+- Visualização separada de conteúdos assistidos e não assistidos.
+- Gráfico com a proporção de conteúdos assistidos.
+- Persistência dos dados no navegador.
+- Navegação responsiva com barra lateral e rotas aninhadas.
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Tecnologias
 
-## Project Setup
+- [Vue 3](https://vuejs.org/) com Composition API
+- [Pinia](https://pinia.vuejs.org/) para gerenciamento de estado
+- [Vue Router](https://router.vuejs.org/) para navegação
+- [Vuetify](https://vuetifyjs.com/) para componentes de interface
+- [Chart.js](https://www.chartjs.org/) e [vue-chartjs](https://vue-chartjs.org/) para gráficos
+- [VueUse](https://vueuse.org/) e `pinia-plugin-persistedstate` para persistência local
+- [Vite](https://vite.dev/) como ferramenta de desenvolvimento e build
+- [Vitest](https://vitest.dev/) e Vue Test Utils na estrutura de testes
+- ESLint e Prettier para qualidade e padronização do código
 
-```sh
+## Como o projeto está organizado
+
+```text
+src/
+├── components/
+│   ├── filmes/        # Formulário e cartão de filmes
+│   ├── filtros/       # Visões filtradas da coleção
+│   ├── graficos/      # Gráficos de barras e pizza
+│   └── series/        # Formulário, cartão e episódios
+├── plugins/           # Configuração do Vuetify
+├── router/            # Rotas e navegação da aplicação
+├── stores/            # Estado global e persistência
+├── views/             # Páginas principais
+└── __tests__/         # Estrutura inicial de testes
+```
+
+O estado de filmes e séries fica centralizado na store `entretenimentoStore`. As páginas consomem esse estado por meio de propriedades computadas, enquanto as ações da store cuidam das inclusões, remoções e alterações de status.
+
+Os dados são armazenados localmente no navegador. Portanto, esta versão não exige cadastro, servidor ou banco de dados externo.
+
+## Como executar
+
+### Pré-requisitos
+
+- Node.js `20.19` ou `22.12` e versões superiores compatíveis
+- npm
+
+### Instalação
+
+```bash
+git clone https://github.com/sergiocruz120/dashboard-filmes-series.git
+cd dashboard-filmes-series
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Ambiente de desenvolvimento
 
-```sh
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
+Acesse o endereço exibido pelo Vite no terminal.
 
-```sh
+### Build de produção
+
+```bash
 npm run build
+npm run preview
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+## Scripts disponíveis
 
-```sh
-npm run test:unit
-```
+| Comando | Descrição |
+| --- | --- |
+| `npm run dev` | Inicia o servidor de desenvolvimento. |
+| `npm run build` | Gera o build otimizado de produção. |
+| `npm run preview` | Executa localmente o build de produção. |
+| `npm run lint` | Verifica e corrige problemas encontrados pelo ESLint. |
+| `npm run format` | Formata os arquivos da pasta `src`. |
+| `npm run test:unit -- --run` | Executa os testes unitários uma vez. |
 
-### Lint with [ESLint](https://eslint.org/)
+## Estado atual de qualidade
 
-```sh
-npm run lint
-```
+| Verificação | Estado |
+| --- | --- |
+| Build de produção | Aprovado |
+| ESLint | Aprovado |
+| Testes automatizados | Em configuração |
+
+O projeto possui uma estrutura inicial com Vitest, mas o teste gerado pelo template ainda depende de ajustes na integração com o Vuetify e será substituído por testes das funcionalidades reais.
+
+## Limitações conhecidas
+
+- Os dados ficam disponíveis apenas no navegador em que foram cadastrados.
+- Não há autenticação nem sincronização entre dispositivos.
+- As imagens dos cartões ainda são estáticas.
+- O gráfico de barras utiliza dados demonstrativos.
+- A cobertura de testes automatizados ainda não está implementada.
+
+## Próximos passos
+
+- Corrigir e ampliar a suíte de testes unitários.
+- Tornar todos os gráficos reativos aos dados cadastrados.
+- Corrigir e testar o filtro de gênero das séries.
+- Permitir imagens personalizadas para filmes e séries.
+- Melhorar validações e mensagens de feedback dos formulários.
+- Otimizar o carregamento dos pacotes no build de produção.
+- Publicar uma demonstração online.
+
+## Autor
+
+Desenvolvido por [Sergio Cruz](https://github.com/sergiocruz120).
+
+- [LinkedIn](https://www.linkedin.com/in/s%C3%A9rgio-cruz-49aa69227/)
+- [E-mail](mailto:sergiocruz1200@gmail.com)
