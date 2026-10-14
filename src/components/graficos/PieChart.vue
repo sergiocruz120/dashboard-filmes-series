@@ -5,11 +5,13 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { Pie } from 'vue-chartjs'
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from 'chart.js'
 import ChartDataLabels from 'chartjs-plugin-datalabels'
 import { entretenimentoStore } from '@/stores/entretenimentoStore'
+
+ChartJS.register(Title, Tooltip, Legend, ArcElement, ChartDataLabels)
 
 const store = entretenimentoStore()
 
@@ -18,31 +20,28 @@ const naoAssistidos = computed(
   () => store.filmesNaoAssistidos.length + store.seriesNaoAssistidas.length,
 )
 
-// ⬇️ Registro dos módulos necessários
-ChartJS.register(Title, Tooltip, Legend, ArcElement, ChartDataLabels)
-
-// ⬇️ Dados do gráfico
-const chartData = ref({
-  labels: ['Assistidos', 'Não Assistidos'],
+const chartData = computed(() => ({
+  labels: ['Assistidos', 'Não assistidos'],
   datasets: [
     {
       data: [assistidos.value, naoAssistidos.value],
       backgroundColor: ['#4CAF50', '#EF5350'],
     },
   ],
-})
+}))
 
-// ⬇️ Configurações do gráfico
-const chartOptions = ref({
+const chartOptions = {
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
     datalabels: {
       formatter: (value, context) => {
         const data = context.chart.data.datasets[0].data
-        const total = data.reduce((acc, val) => acc + val, 0)
-        const percentage = ((value / total) * 100).toFixed(1)
-        return `${percentage}%`
+        const total = data.reduce((acc, item) => acc + item, 0)
+
+        if (total === 0) return '0%'
+
+        return `${((value / total) * 100).toFixed(1)}%`
       },
       color: '#fff',
       font: {
@@ -51,7 +50,5 @@ const chartOptions = ref({
       },
     },
   },
-})
+}
 </script>
-
-<style scoped></style>

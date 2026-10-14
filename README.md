@@ -81,38 +81,35 @@ npm run preview
 
 ## Scripts disponíveis
 
-| Comando | Descrição |
-| --- | --- |
-| `npm run dev` | Inicia o servidor de desenvolvimento. |
-| `npm run build` | Gera o build otimizado de produção. |
-| `npm run preview` | Executa localmente o build de produção. |
-| `npm run lint` | Verifica e corrige problemas encontrados pelo ESLint. |
-| `npm run format` | Formata os arquivos da pasta `src`. |
-| `npm run test:unit -- --run` | Executa os testes unitários uma vez. |
+| Comando                      | Descrição                                             |
+| ---------------------------- | ----------------------------------------------------- |
+| `npm run dev`                | Inicia o servidor de desenvolvimento.                 |
+| `npm run build`              | Gera o build otimizado de produção.                   |
+| `npm run preview`            | Executa localmente o build de produção.               |
+| `npm run lint`               | Verifica e corrige problemas encontrados pelo ESLint. |
+| `npm run format`             | Formata os arquivos da pasta `src`.                   |
+| `npm run test:unit -- --run` | Executa os testes unitários uma vez.                  |
 
 ## Estado atual de qualidade
 
-| Verificação | Estado |
-| --- | --- |
-| Build de produção | Aprovado |
-| ESLint | Aprovado |
-| Testes automatizados | Em configuração |
+| Verificação          | Estado             |
+| -------------------- | ------------------ |
+| Build de produção    | Aprovado           |
+| ESLint               | Aprovado           |
+| Testes automatizados | 5 testes aprovados |
 
-O projeto possui uma estrutura inicial com Vitest, mas o teste gerado pelo template ainda depende de ajustes na integração com o Vuetify e será substituído por testes das funcionalidades reais.
+Os testes automatizados cobrem as operações principais da store, a atualização do status de séries com base nos episódios e a combinação dos filtros de título, gênero e ano.
 
 ## Limitações conhecidas
 
 - Os dados ficam disponíveis apenas no navegador em que foram cadastrados.
 - Não há autenticação nem sincronização entre dispositivos.
 - As imagens dos cartões ainda são estáticas.
-- O gráfico de barras utiliza dados demonstrativos.
-- A cobertura de testes automatizados ainda não está implementada.
+- A suíte de testes ainda não cobre os componentes visuais.
 
 ## Próximos passos
 
-- Corrigir e ampliar a suíte de testes unitários.
-- Tornar todos os gráficos reativos aos dados cadastrados.
-- Corrigir e testar o filtro de gênero das séries.
+- Ampliar os testes unitários e adicionar testes dos componentes visuais.
 - Permitir imagens personalizadas para filmes e séries.
 - Melhorar validações e mensagens de feedback dos formulários.
 - Otimizar o carregamento dos pacotes no build de produção.

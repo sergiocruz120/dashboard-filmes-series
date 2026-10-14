@@ -53,6 +53,8 @@ export const entretenimentoStore = defineStore('entretenimentoStore', {
         const episodio = serie.episodios.find((e) => e.id === idEpisodio)
         if (episodio) {
           episodio.assistido = val
+          serie.assistida =
+            serie.episodios.length > 0 && serie.episodios.every((item) => item.assistido)
         }
       }
     },
